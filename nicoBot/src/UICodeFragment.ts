@@ -6,7 +6,7 @@ export interface UICodeFragment {
     direction?: Direction;
     strValue?: string;
     subFunctions?: UICodeFragment[];
-    conditions?: Condition[];
+    conditions?: UICondition[];
 }
 
 export enum Direction { left, right }
@@ -16,11 +16,11 @@ export enum CodeFunction {
     while,
 }
 
-export interface Condition {
+export interface UICondition {
     operator: Operator;
     left: any;
     right?: any;
-    conditions?: Condition[];
+    conditions?: UICondition[];
 }
 
 export enum Operator {

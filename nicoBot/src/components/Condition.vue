@@ -5,13 +5,16 @@
         <div class="fieldLeft">{{ c.left }}</div>
         <div class="operator">{{ c.operator }}</div>
         <div class="fieldRight">{{ c.right }}</div>
+        <div v-if="c.conditions">
+            and <Condition :conditions="c.conditions" />
+        </div>
     </div>
 </div>
 </template>
 <script setup lang="ts">
-import { Condition, Operator } from '@/UICodeFragment';
+import { UICondition, Operator } from '@/UICodeFragment';
 interface ConditionProps {
-    conditions?: Condition[];
+    conditions?: UICondition[];
 };
 
 const props = defineProps<ConditionProps>()
