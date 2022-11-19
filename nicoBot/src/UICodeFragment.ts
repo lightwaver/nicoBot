@@ -9,7 +9,7 @@ export interface UICodeFragment {
     conditions?: UICondition[];
 }
 
-export enum Direction { left, right }
+export enum Direction { left = "left", right = "right" }
 export enum CodeFunction {
     go,
     turn,

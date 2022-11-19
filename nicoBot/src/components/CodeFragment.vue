@@ -6,7 +6,7 @@
                 <Condition class="condition" :conditions="fragment.conditions" :depth="0" />:
             </div>
             <div v-if="fragment.function != CodeFunction.if" class="function inline">{{ CodeFunction[fragment.function] }}&nbsp;</div>
-            <div class="value inline" >{{ fragment.numVal }}{{ fragment.strValue }} {{ fragment.direction ? Direction[fragment.direction] : "" }}</div>
+            <div v-if="fragment.function != CodeFunction.if" class="value inline" >{{ fragment.numVal }}{{ fragment.strValue }} {{ fragment.direction ? Direction[fragment.direction] : "" }}</div>
 
             <div class="intent">
             <Sortable :list="fragment.subFunctions" item-key="id" tag="div" :options="options" >
@@ -33,12 +33,12 @@ const props = defineProps<CodeFragmentProps>()
 </script>
 <style scoped>
 .command {
-    padding: 5px;
+    padding: 0 5px;
     display:block;
     width: 100%;
 }
 .command > .condition {
-    padding: 5px;
+    padding: 0 5px;
     display: inline-block;
 }
 .command > .command {

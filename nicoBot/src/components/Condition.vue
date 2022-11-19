@@ -30,6 +30,7 @@ const props = defineProps<ConditionProps>()
     padding: 0 5px;
     background-color: #afa;
     outline: 0 1px 0 0 solid silver;
+    border-radius: 1em;
 }
 .condition > div {
     padding: 0 5px;
