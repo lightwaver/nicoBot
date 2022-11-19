@@ -14,6 +14,7 @@ export enum CodeFunction {
     go,
     turn,
     while,
+    if,
 }
 
 export interface UICondition {

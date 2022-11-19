@@ -25,7 +25,7 @@ let elements: UICodeFragment[] = [
     { function: CodeFunction.go, numVal: 30 },
     { function: CodeFunction.turn, direction: Direction.left },
     { function: CodeFunction.go, numVal: 30 },
-    { function: CodeFunction.go, numVal: -60, conditions: [{ left: "x", operator: Operator.equals, right: "2"}, 
+    { function: CodeFunction.if, conditions: [{ left: "x", operator: Operator.equals, right: "2"}, 
     { left: "y", operator: Operator.smallerThan, right: "1", conditions: [
     { left: "z", operator: Operator.equals, right: "2"},
     ]}],
