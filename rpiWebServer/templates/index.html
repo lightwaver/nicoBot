@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+   <head>
+      <title>{{ title }}</title>
+   </head>
+
+   <body>
+      <h1>{{ title }}</h1>
+      <h2>Datum und Uhrzeit am Roboter sind: {{ time }}</h2>
+      <input type="number" placeholder="Distanz" id="distance" value="100" />
+      <input type="number" placeholder="Geschwindigkeit" id="speed" value="20" />
+      <table>
+         <tr>
+            <td></td>
+            <td><button onclick="forwards()">Vorwärts</button></td>
+            <td></td>
+         </tr>
+         <tr>
+            <td>
+               <button onclick="left()">Links</button>
+            </td>
+            <td></td>
+            <td>
+               <button onclick="right()">Rechts</button>
+            </td>
+         </tr>
+         <tr>
+            <td></td>
+            <td>
+               <button onclick="backwards()">Zurück</button>
+            </td>
+            <td></td>
+         </tr>
+      </table>
+      
+      <div id="status"> - </div>
+   </body>
+   
+   <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+
+   <script lang="js">
+      function forwards() {
+         const distance = document.getElementById("distance").value;
+         const speed = document.getElementById("speed").value;
+         makeRequest("/forwards?dist="+distance+"&speed="+speed);
+      }
+      function backwards() {
+         const distance = document.getElementById("distance").value;
+         const speed = document.getElementById("speed").value;
+         makeRequest("/backwards?dist="+distance+"&speed="+speed)
+      }
+      function left() {
+         const distance = document.getElementById("distance").value;
+         const speed = document.getElementById("speed").value;
+         makeRequest("/left?dist="+distance+"&speed="+speed)
+      }
+      function right() {
+         const distance = document.getElementById("distance").value;
+         const speed = document.getElementById("speed").value;
+         makeRequest("/right?dist="+distance+"&speed="+speed)
+      }
+
+      function setStatus(message) {
+         document.getElementById("status").innerHTML = message;
+      }
+
+      function makeRequest(url) {
+         setStatus("sende Befehl:" + url);
+         axios.get(url).then(r => {
+            setStatus("antwort: " + r.data);
+         }).catch(e=> {
+            setStatus("fehler: " + e.message);
+         })
+      }
+   </script>
+</html>

@@ -6,7 +6,7 @@
             <button @click="onPlay"> > Run</button>
         </div>
         <div class="codeFrame">
-        <Sortable :list="elements" item-key="id" tag="div" :options="options" >
+        <Sortable :list="elements" item-key="id" tag="div"  >
             <template #item="{ element, index }">
                 <CodeFragment :fragment="element" :id="index * 100" />
             </template>
@@ -27,9 +27,7 @@ import CodeFragment from "./CodeFragment.vue";
 
 
 let hello = "Hallo Nico!";
-let options: Sortable.SortableOptions = {
- 
-};
+
 let elements: UICodeFragment[] = [
     { function: CodeFunction.go, numVal: 30 },
     { function: CodeFunction.turn, direction: Direction.left },
